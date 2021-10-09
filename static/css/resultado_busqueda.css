@@ -59,6 +59,7 @@ nav .contenedor-imagenes {
 
 main { 
   width: 100%;
+  min-height: calc(100vh - 100px - 150px);
 }
 
 .main-filtrar-busqueda {
@@ -66,21 +67,89 @@ main {
   grid-template-columns: repeat(6, 1fr);
   justify-items: center;
   align-items: center;
-  height: 125px;
+  height: 70px;
   color: #fff;
-  background-color: var(--ivory-black);
+  background-color: var(--sky-color);
 }
 
 .main-filtrar-busqueda button {
-  width: 130px;
-  font-size: 18px;
+  width: auto;
   height: 50px;
-  background-color: var(--prussian-blue);
   border: none;
   border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
   color: #fff;
+  background-color: transparent;
+}
+
+.main-filtrar-busqueda button:hover {
+  text-decoration: underline;
 }
 
 .btn-1 {
   grid-column: 2;
+}
+
+.informacion-busqueda {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.informacion-busqueda .informacion-busqueda-datos {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.informacion-busqueda-totales {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.informacion-busqueda-totales p {
+  padding-right: 15px;
+  color: gray;
+}
+
+.informacion-busqueda-totales ul {
+  list-style-type: none;
+}
+
+.informacion-busqueda-totales ul li {
+  float: left;
+  display: block;
+}
+
+.informacion-busqueda .informacion-busqueda-datos p {
+  line-height: 30px;
+  border-bottom: .5px solid var(--prussian-blue);
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  width:100%;
+  height: 160px;
+  color: #fff;
+  background-color: var(--sky-color);
+  overflow: hidden;
+}
+
+footer section {
+  display: flex;
+  flex-direction: column;
+}
+
+footer section p {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+footer section a {
+  line-height: 25px;
+  color: #fff;
 }
