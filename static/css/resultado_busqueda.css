@@ -123,6 +123,21 @@ main {
   display: block;
 }
 
+.informacion-busqueda .informacion-busqueda-datos > div {
+  margin-bottom: 18px;
+}
+
+.informacion-titulo-img {
+  display: flex;
+  align-items: center;
+}
+
+.informacion-titulo-img img{
+  width: 65px;
+  height: 65px;
+  margin-left: 15px;
+}
+
 .informacion-busqueda .informacion-busqueda-datos p {
   line-height: 30px;
   border-bottom: .5px solid var(--prussian-blue);
