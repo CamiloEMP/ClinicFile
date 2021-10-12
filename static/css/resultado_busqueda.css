@@ -1,5 +1,4 @@
-@import url('./main.css');
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('./estilos_base.css');
 body {
   margin: 0;
   padding: 0;
@@ -42,7 +41,7 @@ nav .contenedor-imagenes {
   padding-right: 20px;
 }
 
-.contenedor-buscador .img-seach {
+.contenedor-buscador .img-search {
   width: 25px;
   height: 25px; 
 }

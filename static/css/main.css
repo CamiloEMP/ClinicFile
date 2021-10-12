@@ -1,10 +1,87 @@
-:root {
-  --prussian-blue: #0B3C5D;
-  --sky-color: #328CC1;
-  --gold-leaf: #D9B310;
-  --ivory-black: #1D2731;
+@import url('./estilos_base.css');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
 
-* {
-  box-sizing: border-box;
+a {
+  color: var(--ivory-black);
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 20px 50px;
+  align-items: center;
+}
+
+.logo-pagina {
+  width: 270px;
+  margin: 0;
+}
+
+header section {
+  padding-top: 30px;
+}
+
+header .header-menu {
+  display: flex;
+  justify-content: center;
+}
+
+header .header-menu a {
+  padding: 15px;
+  margin-right: 30px;
+  color: var(--sky-color);
+  transition: all 400ms ease;
+  border: 2px solid var(--sky-color);
+}
+
+header .header-menu a:hover {
+  color: #fff;
+  border: transparent;
+  border-radius: 5px;
+  background-color: var(--sky-color);
+}
+
+header .header-perfil {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+header .header-perfil a {
+  padding-right: 20px;
+}
+
+header .header-perfil a:first-child:hover{
+  color: var(--sky-color);
+  text-decoration: underline;
+}
+
+header .header-perfil a:last-child:hover{
+  color: rgb(201, 35, 35);
+  text-decoration: underline;
+}
+
+header section img {
+  width: 50px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--ivory-black);
 }

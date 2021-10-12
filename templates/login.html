@@ -45,61 +45,68 @@
     </header>
     
     <!-- Formulario -->
-    <div class="formulario">       
-    <form class="row g-3" method="GET">
-        <h2>Inicia sesión</h2>
-      <!-- Usuario -->
-      <div class="col-md-6 ">
-        <label for="user" class="form-label">Usuario</label>
-        <input type="text" class="form-control" id="inputuserlogin" required>
+    
+  <main>
+    <div class="container-todo">
+      <div class="formulario">       
+        <form class="row g-3" method="GET">
+            <h2>Inicia sesión</h2>
+          <!-- Usuario -->
+          <div class="col-md-6 ">
+            <label for="user" class="form-label">Usuario</label>
+            <input type="text" class="form-control" id="inputuserlogin" required>
+          </div>
+          <!-- Contraseña -->
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="inputpasswordlogin" required>
+          </div>
+          <!-- Olvido contraseña -->
+          <div class="text-center"> 
+            <button type="button" class="btn btn-link">¿Olvidaste tu contraseña?</button>
+            <br>
+            <a href="./registro.html">¿Aun no tienes cuenta?</a>
+          </div>      
+          <!-- Recordarme -->
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck">
+              <label class="form-check-label" for="gridCheck">
+                Recordarme
+              </label>
+            </div>
+          </div>
+          <!-- Botón ingresar -->
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Ingresar</button>
+          </div>
+        </form>
       </div>
-      <!-- Contraseña -->
-      <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="inputpasswordlogin" required>
-      </div>
-      <!-- Olvido contraseña -->
-      <div class="text-center"> 
-        <button type="button" class="btn btn-link">¿Olvidaste tu contraseña?</button>
-      </div>      
-      <!-- Recordarme -->
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Recordarme
-          </label>
+        
+        <!-- Selección de perfil -->
+        
+        <div class="perfiles">
+          <div class="text-center">
+            <img src="../static/img/paciente.png" alt="" width="100px">
+          </div>
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Paciente</button>
+          </div>
+          <div class="text-center">
+            <img src="../static/img/medico.png" alt="" width="100px">
+          </div>
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Médico</button>
+          </div>
+          <div class="text-center">
+            <img src="../static/img/admin.png" alt="" width="100px">
+          </div>
+          <div class="col-12 text-center">
+            <button type="submit" class="btn btn-primary">Superadmin</button>
+          </div>
         </div>
-      </div>
-      <!-- Botón ingresar -->
-      <div class="col-12 text-center">
-        <button type="submit" class="btn btn-primary">Ingresar</button>
-      </div>
-    </form>
-  </div>
-    
-    <!-- Selección de perfil -->
-    
-    <div class="perfiles">
-      <div class="text-center">
-        <img src="../static/img/paciente.png" alt="" width="100px">
-      </div>
-      <div class="col-12 text-center">
-        <button type="submit" class="btn btn-primary">Paciente</button>
-      </div>
-      <div class="text-center">
-        <img src="../static/img/medico.png" alt="" width="100px">
-      </div>
-      <div class="col-12 text-center">
-        <button type="submit" class="btn btn-primary">Médico</button>
-      </div>
-      <div class="text-center">
-        <img src="../static/img/admin.png" alt="" width="100px">
-      </div>
-      <div class="col-12 text-center">
-        <button type="submit" class="btn btn-primary">Superadmin</button>
-      </div>
-    </div> 
+    </div>
+  </main> 
     
     <!-- Footer -->
     <footer class="bg-light text-center text-white">
