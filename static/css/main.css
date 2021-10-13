@@ -10,19 +10,22 @@ body {
 a {
   color: var(--ivory-black);
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
   text-decoration: none;
 }
 
 header {
+  width: 100%;
+  height: 135px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 20px 50px;
   align-items: center;
+  background-color: aliceblue;
 }
 
 .logo-pagina {
-  width: 270px;
+  width: 225px;
   margin: 0;
 }
 
@@ -41,6 +44,7 @@ header .header-menu a {
   color: var(--sky-color);
   transition: all 400ms ease;
   border: 2px solid var(--sky-color);
+  overflow: hidden;
 }
 
 header .header-menu a:hover {
@@ -53,26 +57,93 @@ header .header-menu a:hover {
 header .header-perfil {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   width: 100%;
 }
 
 header .header-perfil a {
-  padding-right: 20px;
+  padding-right: 50px;
 }
 
-header .header-perfil a:first-child:hover{
+header .header-perfil .perfil-nombre:hover a{
   color: var(--sky-color);
   text-decoration: underline;
 }
 
-header .header-perfil a:last-child:hover{
+header .header-perfil .logout:hover a{
   color: rgb(201, 35, 35);
   text-decoration: underline;
 }
 
-header section img {
-  width: 50px;
+.header-perfil .perfil-nombre a {
+  position: relative;
 }
+
+.header-perfil .perfil-nombre img {
+  position: absolute;
+  width: 30px;
+  cursor: pointer;
+  right: 240px;
+  top: 65px;
+}
+
+.header-perfil .logout a {
+  position: relative;
+}
+
+.header-perfil .logout img {
+  position: absolute;
+  width: 30px;
+  cursor: pointer;
+  right: 60px;
+  top: 65px;
+}
+
+main {
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  margin: 20px 60px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ivory-black);
+}
+
+main section {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+main section article {
+  width: 20%;
+  margin-right: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  box-shadow: .5px 2px 5px rgba(0, 0, 0, 0.37);
+}
+
+main section article img {
+  width: 300px;
+}
+
+main section article p {
+  padding: 10px 15px;
+  text-align:justify;
+}
+
+main section article a {
+  padding-right: 15px;
+  text-align: end;
+  display: block;
+  text-decoration: underline;
+  font-size: 16px;
+  color: var(--sky-color);
+}
+
 
 footer {
   display: flex;
