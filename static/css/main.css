@@ -156,3 +156,16 @@ footer {
   background-color: rgba(0, 0, 0, 0.2);
   color: var(--ivory-black);
 }
+
+
+/* ------ Vista sin loguearse --------*/
+
+.header-perfil-not-login {
+  display: grid;
+  grid-column: 3;
+}
+
+/* -------VistaAdmin---------*/
+header .header-menu-admin a {
+  padding: 10px;
+}
