@@ -79,10 +79,14 @@ def registro_envio():
         error = "Complete todos los campos"
         flash(error)
         return render_template('registro.html')
-      if not utils.isUsernameValid(fullname):
+      if not utils.isNameValid(fullname):
         error = "El nombre no debe contener simbolos o numeros"
         flash(error)
         return render_template('registro.html')
+      if not utils.isCellValid(number_document):
+        error = "El número de documento solo debe contener números sin espacios"
+        flash(error)
+        return render_template('registro.html')  
       if not utils.isPasswordValid(password):
         error = 'La contraseña debe contener al menos una minúscula, una mayúscula, un número y 8 caracteres'
         flash(error)
