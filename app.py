@@ -9,7 +9,11 @@ def prueba():
   return render_template('index.html')
 
 @app.route('/login/')
-def login():
+def login_vista():
+  return render_template('login.html')
+
+@app.route('/login/', methods=['GET', 'POST'])
+def login_envio():
   return render_template('login.html')
 
 @app.route('/registro/')
@@ -27,20 +31,20 @@ def registro_envio():
       number_document = request.form['inputdocumentnumber']
       date = request.form['inputdate']
       email = request.form['inputemail']
-      user = request.form['inputuser']
       password = request.form['inputPassword']
-      if not fullname or not phone or not type_document or not number_document or not date or not email or not user or not password:
+      if not fullname or not phone or not type_document or not number_document or not date or not email or not password:
         print('entre')
         error = "Complete todos los campos"
         flash(error)
         return render_template('registro.html')
       if not utils.isUsernameValid(fullname):
-        error = "El usuario debe ser alfanumerico"
+        error = "El nombre no debe contener simbolos o numeros"
         flash(error)
         return render_template('registro.html')
       if not utils.isPasswordValid(password):
         error = 'La contraseña debe contener al menos una minúscula, una mayúscula, un número y 8 caracteres'
         flash(error)
+        return render_template('registro.html')
       if not utils.isEmailValid(email):
         error = 'Correo invalido'
         flash(error)
