@@ -13,3 +13,20 @@ document.querySelector('.contenedor-boton').addEventListener('click', () => {
     behavior: 'smooth',
   })
 })
+
+function paginaAtras() {
+  window.location="../../templates/listadocitas.html"
+}
+
+document.querySelectorAll('.li-medico').forEach(element => {
+  const btnDelt = document.createElement('button');
+  const btnEdit = document.createElement('button');
+  const contentbtnDelt = document.createTextNode("Eliminar");
+  const contentbtnEdit = document.createTextNode("Editar");
+  btnDelt.appendChild(contentbtnDelt);
+  btnEdit.appendChild(contentbtnEdit);
+  btnDelt.className = 'btn-delete-edit btn-delete';
+  btnEdit.className = 'btn-delete-edit btn-edit';
+
+  element.innerHTML = `${element.textContent} ${element.after(btnDelt)} ${element.after(btnEdit)}`
+});
