@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listado de Citas</title>
+    <!--link rel="stylesheet" href="css/bootstrap.css" /-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/clinic-style.css"/>
+    <script src="../static/js/jquery-3.6.0.min.js"></script>
+    <!--script src="js/bootstrap.bundle.js"></script-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="../static/js/clinica-script.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar bg-light lineMenu">
+        <div class="container-fluid toolbar">
+          <img src="../static/img/logtipo_pagina_small.png"/>
+          <ul class="nav nav-pills mb-3 adjustmenu" id="pills-tab" role="tablist"> 
+            <li class="nav-item" role="presentation">
+              <a href="index.html" style="text-decoration: none;"><button class="nav-link" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button></a>
+            </li> 
+            <li class="nav-item" role="presentation">
+              <a href="agendarcita.html" style="text-decoration: none;"><button class="nav-link" id="pills-citas-tab" data-bs-toggle="pill" data-bs-target="#pills-citas" type="button" role="tab" aria-controls="pills-citas" aria-selected="false">Citas</button></a>
+            </li>
+            <li class="nav-item" role="presentation">
+              <a href="resultado_busqueda.html" style="text-decoration: none;"><button class="nav-link" id="pills-buscar-tab" data-bs-toggle="pill" data-bs-target="#pills-buscar" type="button" role="tab" aria-controls="pills-buscar" aria-selected="false">Busqueda</button></a>
+            </li>
+
+          </ul>
+          <div class="spacer"></div>
+          <ul class="nav" role="tablist"> 
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="../static/img/user.png"/>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="listadocitasPaciente.html">Mis Citas</a></li>
+                <li><a class="dropdown-item" href="perfil.html">Mi información</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+              </ul>
+            </li>
+            <li class="nav">
+              <ul class="dropdown-item">
+                <li class="dropdown-item">
+                  <a href="index.html"><img src="../static/img/home.png"></a>
+                </li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </nav> 
+    </header>
+  <!--filtrar por # para agregar links-->
+  <main>
+    <div class="container">         
+    <form class="row g-3" method="GET">
+      <h2>Editar datos de pacientes</h2>
+      <!-- Nombres y apellidos -->
+      <div class="col-md-6">
+        <label for="inputname" class="form-label">Nombres y Apellidos</label>
+        <input type="text" class="form-control" id="inputname" required>
+      </div>
+      <!-- Telefono -->
+      <div class="col-md-6">
+        <label for="inputnumber" class="form-label">Télefono de contacto</label>
+        <input type="number" class="form-control" id="inputnumber" required>
+      </div>
+      <div class="col-md-6">
+        <label for="inputnumber" class="form-label">Dirección de Residencia</label>
+        <input type="text" class="form-control" id="inputaddres" required>
+      </div>
+      <!-- Tipo documento >
+      <div class="col-md-4">
+      <label for="inputdocumenttype" class="form-label">Tipo de documento</label>
+      <select id="inputdocumenttype" class="form-select" required>
+        <option selected>Cédula de ciudadanía</option>
+        <option>Cédula extranjera</option>
+        <option>Pasaporte</option>
+        <option>Registro civil</option>
+      </select>
+      </div>
+      < Número documento >
+      <div class="col-md-6">
+        <label for="inputdocumentnumber" class="form-label">Número de documento</label>
+        <input type="text" class="form-control" id="inputdocumentnumber" placeholder="Sin espacios ni puntos" required>
+      </div-->
+      <!-- Fecha nacimiento>
+      <div class="col-md-6">
+        <label for="inputdate" class="form-label">Fecha de nacimiento</label>
+        <input type="date" class="form-control" id="inputdate" required>
+      </div-->
+      <!-- Correo -->
+      <div class="col-md-6">
+        <label for="inputemail" class="form-label">Correo electrónico</label>
+        <input type="email" class="form-control" id="inputemail" required>
+      </div>
+      <!-- Usuario>
+      <div class="col-md-6">
+        <label for="inputuser" class="form-label">Usuario</label>
+        <input type="text" class="form-control" id="inputuser" required minlength="8">
+      </div-->
+      <!-- Contraseña -->
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Contraseña Actual</label>
+        <input type="password" class="form-control" id="inputPasswordActual4" required minlength="8">
+      </div>
+      <!-- Contraseña Nueva -->
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Contraseña Nueva</label>
+        <input type="password" class="form-control" id="inputPasswordNueva4" required minlength="8">
+      </div>
+      <!-- Aceptar norvativa datos -->
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" required>
+          <label class="form-check-label" for="gridCheck">
+            Declaro haber leído y aceptado la normativa sobre protección de datos.
+          </label>
+        </div>
+      </div>
+      <!-- Botones enviar y eliminar -->
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="reset" class="btn btn-primary">Eliminar todo</button>
+      </div>
+    </form>
+    </div>
+  </main>
+
+    <footer class="bg-light text-center text-white fixed-bottom">
+      <div class="container p-4 pb-0">
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: #212529">
+        © 2021 Copyright: ClinicFile
+      </div>
+    </footer>
+    
+  </body>
+</html>
