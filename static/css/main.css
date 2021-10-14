@@ -164,3 +164,8 @@ footer {
   display: grid;
   grid-column: 3;
 }
+
+/* -------VistaAdmin---------*/
+header .header-menu-admin a {
+  padding: 10px;
+}

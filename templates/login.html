@@ -38,22 +38,24 @@
       </nav> 
     </header>
     
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}  
     <!-- Formulario -->
-    
   <main>
     <div class="container-todo">
       <div class="formulario">       
-        <form class="row g-3" method="GET">
+        <form class="row g-3" method="POST" action="{{url_for('login_envio')}}">
             <h2>Inicia sesión</h2>
           <!-- Usuario -->
           <div class="col-md-6 ">
-            <label for="user" class="form-label">Usuario</label>
-            <input type="text" class="form-control" id="inputuserlogin" required>
+            <label for="inputemaillogin" class="form-label">Correo</label>
+            <input type="email" class="form-control" id="inputemaillogin" name="inputemaillogin" required>
           </div>
           <!-- Contraseña -->
           <div class="col-md-6">
             <label for="inputPassword4" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="inputpasswordlogin" required>
+            <input type="password" class="form-control" id="inputpasswordlogin" name="inputpasswordlogin" required>
           </div>
           <!-- Olvido contraseña -->
           <div class="text-center"> 
