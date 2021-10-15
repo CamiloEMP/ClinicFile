@@ -55,90 +55,6 @@ def login_envio():
   except:
     return render_template('login.html')
 
-@app.route('/login/', methods=['GET', 'POST'])
-def login_envio_paciente():
-  try:
-    if request.method == 'POST':
-      #Emails and Passwords default
-      correoPaciente = 'correopaciente@gmail.com'
-      passwordPaciente = 'contraseñaPaciente'
-      correoMedico = 'correoMedico@gmail.com'
-      passwordMedico = 'contraseñaMedico'
-      correoAdmin = 'correoAdmin@gmail.com'
-      passwordAdmin = 'contraseñaAdmin'
-      # Inputs
-      email = request.form['inputemaillogin']
-      password = request.form['inputpasswordlogin']
-
-      if not email or not password:
-        error = 'Complete todos los campos'
-        flash(error)
-        return render_template('login.html')
-
-      if correoPaciente == email and passwordPaciente == password:
-          return redirect('home_paciente')
-      elif correoMedico == email and passwordMedico == password:
-        return redirect('home_medico')
-      elif correoAdmin == email and password == password:
-        return redirect('home_admin')
-
-      if correoPaciente != email or passwordPaciente != password:
-        error = 'Correo o contraseña invalidos'
-        flash(error)
-        return render_template('login.html')
-      elif correoMedico != email or  passwordMedico != password:
-        error = 'Correo o contraseña invalidos'
-        flash(error)
-        return render_template('login.html')
-      elif correoAdmin != email or passwordAdmin != password:
-        error = 'Correo o contraseña invalidos'
-        flash(error)
-        return render_template('login.html')
-  except:
-    return render_template('login.html')
-
-@app.route('/login/', methods=['GET', 'POST'])
-def login_envio_admin():
-  try:
-    if request.method == 'POST':
-      #Emails and Passwords default
-      correoPaciente = 'correopaciente@gmail.com'
-      passwordPaciente = 'contraseñaPaciente'
-      correoMedico = 'correoMedico@gmail.com'
-      passwordMedico = 'contraseñaMedico'
-      correoAdmin = 'correoAdmin@gmail.com'
-      passwordAdmin = 'contraseñaAdmin'
-      # Inputs
-      email = request.form['inputemaillogin']
-      password = request.form['inputpasswordlogin']
-
-      if not email or not password:
-        error = 'Complete todos los campos'
-        flash(error)
-        return render_template('login.html')
-
-      if correoPaciente == email and passwordPaciente == password:
-          return redirect('home_paciente')
-      elif correoMedico == email and passwordMedico == password:
-        return redirect('home_medico')
-      elif correoAdmin == email and password == password:
-        return redirect('home_admin')
-
-      if correoPaciente != email or passwordPaciente != password:
-        error = 'Correo o contraseña invalidos'
-        flash(error)
-        return render_template('login.html')
-      elif correoMedico != email or  passwordMedico != password:
-        error = 'Correo o contraseña invalidos'
-        flash(error)
-        return render_template('login.html')
-      elif correoAdmin != email or passwordAdmin != password:
-        error = 'Correo o contraseña invalidos'
-        flash(error)
-        return render_template('login.html')
-  except:
-    return render_template('login.html')
-
 @app.route('/registro/')
 def registro_vista():
   return render_template('registro.html')
@@ -223,6 +139,14 @@ def home_medico():
 def listado_citas_medico():
   return render_template('listadocitas.html')
 
+@app.route('/login/detalle_cita_medico')
+def detalle_cita_medico():
+  return render_template('detalles_cita_medico.html')
+
 @app.route('/login/home_admin')
 def home_admin():
   return render_template('pagina_admin_index.html')
+
+@app.route('/login/buscar_datos')
+def buscar_datos():
+  return render_template('resultado_busqueda.html')

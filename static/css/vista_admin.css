@@ -1,0 +1,32 @@
+@import url('./main.css');
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 160px;
+  color: #fff;
+  background-color: var(--sky-color);
+  overflow: hidden;
+  align-items: flex-start;
+}
+
+footer section {
+  display: flex;
+  flex-direction: column;
+}
+
+footer section p {
+  text-transform: uppercase;
+  font-size: 20px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+footer section a {
+  line-height: 25px;
+  color: #fff;
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: normal;
+}

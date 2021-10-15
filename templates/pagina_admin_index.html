@@ -4,28 +4,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../static/css/main.css">
+  <link rel="stylesheet" href="../static/css/vista_admin.css">
   <title>ClinicFile</title>
 </head>
 <body>
   <header>
     <img src="../static/img/logtipo_pagina_small.png" alt="Logotipo de la pagina" class="logo-pagina">
     <section class="header-menu header-menu-admin">
-      <a href="#">Agendar cita</a>
-      <a href="#">Citas pendientes</a>
-      <a href="#">Gestionar citas</a>
+      <a href="/login/agendar_cita">Agendar cita</a>
+      <a href="/login/buscar_datos">Buscar
+      </a>
+      <a href="/login/listado_citas_medico">Gestionar citas</a>
     </section>
     <section class="header-perfil">
       <div class="perfil-nombre perfil-nombre-admin">
-        <a href="#">Admin</a>
+        <a href="/login/perfil">Admin</a>
         <img src="../static/img/user.png" alt="">
       </div>
       <div class="logout logout-admin">
-        <a href="#">Cerrar sesion</a>
+        <a href="/login/">Cerrar sesion</a>
         <img src="../static/img/logout_icon.png" alt="">
       </div>
     </section>
   </header>
+  
   <main>
     <h2>Ultimas noticias</h2>
     <section>
@@ -49,7 +51,28 @@
       </article>
     </section>
   </main>
-  <footer>© 2021 Copyright: ClinicFile</footer>
+  <footer>
+    <section>
+      <p>Vistas generalas</p>
+      <a class="footer-a" href="/login/">Login</a>
+      <a class="footer-a" href="/registro/">Registro</a>
+      <a class="footer-a" href="/login/perfil">Perfil</a>
+      <a class="footer-a"  href="/login/editar_perfil"></a>
+    </section>
+    <section>
+      <p>Vistas Paciente</p>
+      <a class="footer-a"  href="/login/home_paciente">Home Paciente</a>
+      <a class="footer-a"  href="/login/agendar_cita">Agendar cita</a>
+      <a class="footer-a"  href="/login/listado_citas">Listado de citas</a>
+      <a class="footer-a"  href="/login/detalle_cita">Detalles de la cita</a>
+    </section>
+    <section>
+      <p>Vistas Medico</p>
+      <a class="footer-a"  href="/login/home_medico">Home Médico</a>
+      <a class="footer-a"  href="/login/listado_citas_medico">Listado de citas</a>
+      <a class="footer-a"  href="/login/detalle_cita_medico">Detalles de la cita</a>
+    </section>
+  </footer>
   <script src="../static/js/main.js"></script>
 </body>
 </html>

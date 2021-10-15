@@ -144,7 +144,6 @@ main section article a {
   color: var(--sky-color);
 }
 
-
 footer {
   display: flex;
   align-items: center;
@@ -156,7 +155,6 @@ footer {
   background-color: rgba(0, 0, 0, 0.2);
   color: var(--ivory-black);
 }
-
 
 /* ------ Vista sin loguearse --------*/
 

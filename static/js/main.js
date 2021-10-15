@@ -18,6 +18,10 @@ function paginaAtras() {
   window.location="/login/listado_citas"
 }
 
+function paginaAtrasMedico() {
+  window.location="/login/listado_citas_medico"
+}
+
 document.querySelectorAll('.li-medico').forEach(element => {
   const btnDelt = document.createElement('button');
   const btnEdit = document.createElement('button');

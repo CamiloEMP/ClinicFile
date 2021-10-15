@@ -223,6 +223,8 @@ footer section {
 footer section p {
   text-transform: uppercase;
   font-size: 20px;
+  margin-top: 8px;
+  margin-bottom: 10px;
 }
 
 footer section a {

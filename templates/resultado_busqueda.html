@@ -16,9 +16,8 @@
         <input type="text" placeholder="Buscar">
         <img class="img-search" src="../static/img/search.png" alt="">
       </div>
-      <div class="contenedor-imagenes">
-        <img class="img-home-profile" src="../static/img/user.png" alt="Logo usuario">
-        <img class="img-home-profile" src="../static/img/home.png" alt="Logo home">
+      <div>
+        <a href="/login/home_admin"><img src="../static/img/home.png" alt=""></a>
       </div>
     </nav>
   </header>
@@ -78,18 +77,23 @@
   <footer>
     <section>
       <p>Vistas generalas</p>
-      <a href="#">Login</a>
-      <a href="#">Registro</a>
-      <a href="#">Listado de citas</a>
+      <a href="/login/">Login</a>
+      <a href="/registro/">Registro</a>
+      <a href="/login/perfil">Perfil</a>
+      <a href="/login/editar_perfil"></a>
     </section>
     <section>
       <p>Vistas Paciente</p>
-      <a href="#">Agendar cita</a>
-      <a href="#">Detalles de la cita</a>
+      <a href="/login/home_paciente">Home Paciente</a>
+      <a href="/login/agendar_cita">Agendar cita</a>
+      <a href="/login/listado_citas">Listado de citas</a>
+      <a href="/login/detalle_cita">Detalles de la cita</a>
     </section>
     <section>
       <p>Vistas Medico</p>
-      <a href="#">Detalles de la cita</a>
+      <a href="/login/home_medico">Home Médico</a>
+      <a href="/login/listado_citas_medico">Listado de citas</a>
+      <a href="/login/detalle_cita_medico">Detalles de la cita</a>
     </section>
   </footer>
   <script src="../static/js/main.js"></script>
