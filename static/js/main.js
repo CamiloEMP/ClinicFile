@@ -15,7 +15,7 @@ document.querySelector('.contenedor-boton').addEventListener('click', () => {
 })
 
 function paginaAtras() {
-  window.location="../../templates/listadocitas.html"
+  window.location="/login/listado_citas"
 }
 
 document.querySelectorAll('.li-medico').forEach(element => {

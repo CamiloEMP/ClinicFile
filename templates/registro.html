@@ -45,7 +45,7 @@
         </nav> 
       </header>
     {% for message in get_flashed_messages() %}
-      <div class="flash">{{ message }}</div>
+      <div class="alert alert-danger">{{ message }}</div>
     {% endfor %}
     <!-- Formulario -->
     <main>
