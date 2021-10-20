@@ -1,78 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../static/css/vista_admin.css">
-  <title>ClinicFile</title>
-</head>
-<body>
-  <header>
-    <img src="../static/img/logtipo_pagina_small.png" alt="Logotipo de la pagina" class="logo-pagina">
-    <section class="header-menu header-menu-admin">
-      <a href="/login/agendar_cita">Agendar cita</a>
-      <a href="/login/buscar_datos">Buscar
-      </a>
-      <a href="/login/listado_citas_medico">Gestionar citas</a>
-    </section>
-    <section class="header-perfil">
-      <div class="perfil-nombre perfil-nombre-admin">
-        <a href="/login/perfil">Admin</a>
-        <img src="../static/img/user.png" alt="">
-      </div>
-      <div class="logout logout-admin">
-        <a href="/login/">Cerrar sesion</a>
-        <img src="../static/img/logout_icon.png" alt="">
-      </div>
-    </section>
-  </header>
-  
-  <main>
-    <h2>Ultimas noticias</h2>
-    <section>
-      <article>
-        <img src="../static/img/imagen-doctores-home.png" alt="">
-        <h3>Nombre noticia</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
-        <a href="">Ver mas</a>
-      </article>
-      <article>
-        <img src="../static/img/imagen-doctores-home.png" alt="">
-        <h3>Nombre noticia</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
-        <a href="">Ver mas</a>
-      </article>
-      <article>
-        <img src="../static/img/imagen-doctores-home.png" alt="">
-        <h3>Nombre noticia</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
-        <a href="">Ver mas</a>
-      </article>
-    </section>
-  </main>
-  <footer>
-    <section>
-      <p>Vistas generalas</p>
-      <a class="footer-a" href="/login/">Login</a>
-      <a class="footer-a" href="/registro/">Registro</a>
-      <a class="footer-a" href="/login/perfil">Perfil</a>
-      <a class="footer-a"  href="/login/editar_perfil"></a>
-    </section>
-    <section>
-      <p>Vistas Paciente</p>
-      <a class="footer-a"  href="/login/home_paciente">Home Paciente</a>
-      <a class="footer-a"  href="/login/agendar_cita">Agendar cita</a>
-      <a class="footer-a"  href="/login/listado_citas">Listado de citas</a>
-      <a class="footer-a"  href="/login/detalle_cita">Detalles de la cita</a>
-    </section>
-    <section>
-      <p>Vistas Medico</p>
-      <a class="footer-a"  href="/login/home_medico">Home Médico</a>
-      <a class="footer-a"  href="/login/listado_citas_medico">Listado de citas</a>
-      <a class="footer-a"  href="/login/detalle_cita_medico">Detalles de la cita</a>
-    </section>
-  </footer>
-  <script src="../static/js/main.js"></script>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Ultimas noticias</h2>
+<section>
+  <article>
+    <img src="../static/img/imagen-doctores-home.png" alt="">
+    <h3>Nombre noticia</h3>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
+    <a href="">Ver mas</a>
+  </article>
+  <article>
+    <img src="../static/img/imagen-doctores-home.png" alt="">
+    <h3>Nombre noticia</h3>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
+    <a href="">Ver mas</a>
+  </article>
+  <article>
+    <img src="../static/img/imagen-doctores-home.png" alt="">
+    <h3>Nombre noticia</h3>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
+    <a href="">Ver mas</a>
+  </article>
+</section>
+{% endblock %}

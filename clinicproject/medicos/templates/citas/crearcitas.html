@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="POST">
+  <br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-4">
+      </div>
+      <div class="col-xl-4 shadow p-3 mb-5 bg-white rounded">
+        <p class="h4 text-center">Crear disponibilidad de citas</p>
+        <br>
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+          {{ form.cantidad.label }}
+          {{ form.cantidad(class_="form-control")}} 
+        </div>
+        <div class="mb-3">
+          {{ form.duracion.label }}
+          {{ form.duracion(class_="form-control")}}
+        </div> 
+        <div class="mb-3">
+          {{ form.dia.label }}
+          {{ form.dia(class_="form-check-date")}} 
+        </div>
+        <div class="mb-3">
+          {{ form.hora.label }}
+          {{ form.hora()}} 
+        </div>
+        <br>
+
+        {% for message in get_flashed_messages() %}
+
+          {% if message == 'Citas creadas correctamente!!' %}
+          <div class="alert alert-success alert-dismissible fade show" role='alert'>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+            {{message}}
+          </div>
+          {% else %}
+            <div class="alert alert-danger alert-dismissible fade show" role='alert'>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+              {{message}}
+            </div>
+          {% endif %}
+        {% endfor%}
+
+        <div >
+          <div class="form-button-crearcita">
+            {{ form.crear(class_="btn btn-primary") }}
+          </div>
+      </div>
+      <div class="col-xl-4">
+      </div>
+    </div>
+  </div>
+</form>
+ 
+{% endblock %}

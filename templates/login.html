@@ -1,102 +1,72 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="../static/css/login.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    
-    <title>Inicia sesión</title>
-  </head>
-  <body style="background-color:white;">
-    
-    <!-- Barra de navegación -->
-    <header>
-      <nav class="navbar bg-light lineMenu">
-        <div class="container-fluid toolbar">
-          <img src="../static/img/logtipo_pagina_small.png"/>
-        </div>
-      </nav> 
-    </header>
-    
-  {% for message in get_flashed_messages() %}
-    <div class="alert alert-danger">{{ message }}</div>
-  {% endfor %}  
-    <!-- Formulario -->
-  <main>
-    <div class="container-todo">
-      <div class="formulario">       
-        <form class="row g-3" method="POST" action="{{url_for('login_envio')}}">
-            <h2 id="title-login" name="title-login">Inicia sesión</h2>
-          <!-- Usuario -->
-          <div class="col-md-6 ">
-            <label for="inputemaillogin" class="form-label">Correo</label>
-            <input type="email" class="form-control" id="inputemaillogin" name="inputemaillogin" required>
-          </div>
-          <!-- Contraseña -->
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="inputpasswordlogin" name="inputpasswordlogin" required>
-          </div>
-          <!-- Olvido contraseña -->
-          <div class="text-center"> 
-            <button type="button" class="btn btn-link">¿Olvidaste tu contraseña?</button>
-            <br>
-            <a href="/registro/">¿Aun no tienes cuenta?</a>
-          </div>      
-          <!-- Recordarme -->
-          <div class="col-12">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                Recordarme
-              </label>
-            </div>
-          </div>
-          <!-- Botón ingresar -->
-          <div class="col-12 text-center">
-            <button type="submit" class="btn btn-primary">Ingresar</button>
-          </div>
-        </form>
+{% extends "base.html" %}
+{% block content %}
+{% for message in get_flashed_messages() %}
+<div class="alert alert-danger">{{ message }}</div>
+{% endfor %}  
+<!-- Formulario -->
+<main>
+<div class="container-todo">
+  <div class="formulario">       
+    <form class="form-login row g-3" method="POST" action="{{url_for('login_envio')}}">
+        <h2 id="title-login" name="title-login">Inicia sesión</h2>
+      <!-- Usuario -->
+      <div class="col-md-6 ">
+        <label for="inputemaillogin" class="form-label">Correo</label>
+        <input type="email" class="form-control" id="inputemaillogin" name="inputemaillogin" required>
       </div>
-        
-        <!-- Selección de perfil -->
-        
-        <div class="perfiles">
-          <div class="text-center">
-            <img src="../static/img/paciente.png" alt="" width="100px">
-          </div>
-          <div class="col-12 text-center">
-            <button id="btn-paciente-login" type="submit" class="btn btn-primary">Paciente</button>
-          </div>
-          <div class="text-center">
-            <img src="../static/img/medico.png" alt="" width="100px">
-          </div>
-          <div class="col-12 text-center">
-            <button id="btn-medico-login" type="submit" class="btn btn-primary">Médico</button>
-          </div>
-          <div class="text-center">
-            <img src="../static/img/admin.png" alt="" width="100px">
-          </div>
-          <div class="col-12 text-center">
-            <button id="btn-admin-login" type="submit" class="btn btn-primary">Superadmin</button>
-          </div>
+      <!-- Contraseña -->
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="inputpasswordlogin" name="inputpasswordlogin" required>
+      </div>
+      <!-- Olvido contraseña -->
+      <div class="text-center"> 
+        <button type="button" class="btn btn-link">¿Olvidaste tu contraseña?</button>
+        <br>
+        <a href="/registro/">¿Aun no tienes cuenta?</a>
+      </div>      
+      <!-- Recordarme -->
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            Recordarme
+          </label>
         </div>
+      </div>
+      <!-- Botón ingresar -->
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+      </div>
+    </form>
+  </div>
+    
+    <!-- Selección de perfil -->
+    
+    <div class="perfiles">
+      <div class="text-center">
+        <img src="../static/img/paciente.png" alt="" width="100px">
+      </div>
+      <div class="col-12 text-center">
+        <button id="btn-paciente-login" type="submit" class="btn btn-primary">Paciente</button>
+      </div>
+      <div class="text-center">
+        <img src="../static/img/medico.png" alt="" width="100px">
+      </div>
+      <div class="col-12 text-center">
+        <button id="btn-medico-login" type="submit" class="btn btn-primary">Médico</button>
+      </div>
+      <div class="text-center">
+        <img src="../static/img/admin.png" alt="" width="100px">
+      </div>
+      <div class="col-12 text-center">
+        <button id="btn-admin-login" type="submit" class="btn btn-primary">Superadmin</button>
+      </div>
     </div>
-  </main> 
-    
-    <!-- Footer -->
-    <footer class="bg-light text-center text-white">
-      <div class="container p-4 pb-0">
-      </div>
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: #212529">
-        © 2021 Copyright: ClinicFile
-      </div>
-    </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <script src="../static/js/login.js"></script>
-  </body>
-</html>
+</div>
+</main> 
+
+
+
+
+{% endblock %}

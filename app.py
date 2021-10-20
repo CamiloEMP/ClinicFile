@@ -1,14 +1,17 @@
-import re
-from flask import Flask, render_template, request, redirect, flash
-import os
-import utils
-app = Flask(__name__)
-app.secret_key = os.urandom(24)
-error = None
+from clinicproject import app
+from flask import render_template
+#import os
+#import utils
+#app = Flask(__name__)
+#app.secret_key = os.urandom(24)
+#error = None
+activeMenu = "home"
+
 @app.route('/')
 def index():
-  return render_template('index.html')
-
+  activeMenu = "home"
+  return render_template('index.html' , activeMenu = activeMenu)
+'''
 @app.route('/login/')
 def login_vista():
   return render_template('login.html')
@@ -57,7 +60,8 @@ def login_envio():
 
 @app.route('/registro/')
 def registro_vista():
-  return render_template('registro.html')
+  activeMenu = "registro"
+  return render_template('registro.html', activeMenu = activeMenu)
 
 @app.route('/registro/', methods=['GET', 'POST'])
 def registro_envio():
@@ -107,46 +111,58 @@ def registro_envio():
   except:
     return render_template('registro.html')
 
-@app.route('/login/perfil')
+@app.route('/perfil')
 def perfil():
   return render_template('perfil.html')
 
-@app.route('/login/editar_perfil')
+@app.route('/editar_perfil')
 def edit_perfil():
   return render_template('editarPerfil.html')
 
-@app.route('/login/home_paciente')
+@app.route('/home_paciente')
 def home_paciente():
-  return render_template('pagina_paciente_index.html')
+  activeMenu = "home"
+  return render_template('pagina_paciente_index.html', activeMenu = activeMenu)
 
-@app.route('/login/agendar_cita')
+@app.route('/agendar_cita')
 def agendar_cita():
-  return render_template('agendarcita.html')
+  activeMenu = "agendar"
+  return render_template('agendarcita.html', activeMenu = activeMenu)
 
-@app.route('/login/listado_citas')
+@app.route('/listado_citas')
 def listado_citas():
-  return render_template('listadocitasPaciente.html')
+  activeMenu = "infoCitas"
+  return render_template('listadocitasPaciente.html', activeMenu = activeMenu)
 
-@app.route('/login/detalle_cita')
+@app.route('/listado_citas/detalle_cita')
 def detalle_cita():
-  return render_template('detalles_cita_paciente.html')
+  activeMenu = "detalleCita"
+  return render_template('detalles_cita_paciente.html', activeMenu = activeMenu)
 
-@app.route('/login/home_medico')
+@app.route('/home_medico')
 def home_medico():
-  return render_template('pagina_medico_index.html')
+  activeMenu = "home"
+  return render_template('pagina_medico_index.html', activeMenu = activeMenu)
 
-@app.route('/login/listado_citas_medico')
+@app.route('/listado_citas_medico')
 def listado_citas_medico():
-  return render_template('listadocitas.html')
+  activeMenu = "infoCitasMedico"
+  return render_template('listadocitas.html', activeMenu = activeMenu)
 
-@app.route('/login/detalle_cita_medico')
+@app.route('/listado_citas_medico/detalle_cita_medico')
 def detalle_cita_medico():
-  return render_template('detalles_cita_medico.html')
+  activeMenu = "detalleCitaMedico"
+  return render_template('detalles_cita_medico.html', activeMenu = activeMenu)
 
-@app.route('/login/home_admin')
+@app.route('/home_admin')
 def home_admin():
-  return render_template('pagina_admin_index.html')
+  activeMenu = "home"
+  return render_template('pagina_admin_index.html', activeMenu = activeMenu)
 
-@app.route('/login/buscar_datos')
+@app.route('/buscar_datos')
 def buscar_datos():
-  return render_template('resultado_busqueda.html')
+  activeMenu = "buscar"
+  return render_template('resultado_busqueda.html', activeMenu = activeMenu)
+'''
+if __name__ == '__main__':
+  app.run(debug=True)

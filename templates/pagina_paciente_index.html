@@ -1,54 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../static/css/main.css">
-  <title>ClinicFile</title>
-</head>
-<body>
-  <header>
-    <img src="../static/img/logtipo_pagina_small.png" alt="Logotipo de la pagina" class="logo-pagina">
-    <section class="header-menu">
-      <a href="/login/agendar_cita">Agendar cita</a>
-      <a href="/login/listado_citas">Información citas</a>
-    </section>
-    <section class="header-perfil">
-      <div class="perfil-nombre">
-        <a href="/login/perfil">Pepito Perez</a>
-        <img src="../static/img/user.png" alt="">
-      </div>
-      <div class="logout">
-        <a href="/login/">Cerrar sesion</a>
-        <img src="../static/img/logout_icon.png" alt="">
-      </div>
-    </section>
-  </header>
-  <main>
-    <h2>Ultimas noticias</h2>
-    <section>
-      <article>
-        <img src="../static/img/imagen-doctores-home.png" alt="">
-        <h3>Nombre noticia</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
-        <a href="">Ver mas</a>
-      </article>
-      <article>
-        <img src="../static/img/imagen-doctores-home.png" alt="">
-        <h3>Nombre noticia</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
-        <a href="">Ver mas</a>
-      </article>
-      <article>
-        <img src="../static/img/imagen-doctores-home.png" alt="">
-        <h3>Nombre noticia</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
-        <a href="">Ver mas</a>
-      </article>
-    </section>
-  </main>
-  <footer>© 2021 Copyright: ClinicFile</footer>
-  <script src="../static/js/main.js"></script>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Ultimas noticias</h2>
+<section>
+  <article>
+    <img src="../static/img/imagen-doctores-home.png" alt="">
+    <h3>Nombre noticia</h3>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
+    <a href="">Ver mas</a>
+  </article>
+  <article>
+    <img src="../static/img/imagen-doctores-home.png" alt="">
+    <h3>Nombre noticia</h3>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
+    <a href="">Ver mas</a>
+  </article>
+  <article>
+    <img src="../static/img/imagen-doctores-home.png" alt="">
+    <h3>Nombre noticia</h3>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
+    <a href="">Ver mas</a>
+  </article>
+</section>
+{% endblock %}
