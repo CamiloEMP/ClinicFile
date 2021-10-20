@@ -1,93 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../static/css/detalles_cita_paciente.css">
-  <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-  <title>Detalles cita</title>
-</head>
-<body>
-  <header>
-    <img src="../static/img/logtipo_pagina_small.png" alt="Logotipo de la pagina" class="logo-pagina">
-    <section class="header-menu">
-      <a href="/login/listado_citas_medico">Gestionar citas</a>
-    </section>
-    <section class="header-perfil">
-      <div class="perfil-nombre">
-        <a href="/login/perfil">Doctor Pepito Perez</a>
-        <img src="../static/img/user.png" alt="">
-      </div>
-      <div class="logout">
-        <a href="/login/">Cerrar sesion</a>
-        <img src="../static/img/logout_icon.png" alt="">
-      </div>
-    </section>
-  </header>
-  <main>
-    <button title="Atras" onclick="paginaAtrasMedico()" class="contenedor-boton">
-      <div class="boton-arriba">
-        <i class="fas fa-chevron-left"></i>
-      </div>
-    </button>
-    <div class="title">
-      <h2 class="title-v-d">Detalle de la cita</h2>
+{% extends "base.html" %}
+{% block content %}
+<main>
+  <button title="Atras" onclick="paginaAtrasMedico()" class="contenedor-boton">
+    <div class="boton-arriba">
+      <i class="fas fa-chevron-left"></i>
     </div>
-    <section class="container-v-d">
-      <aside class="informacion-cita aside-v-d">
-          <div>
-            <h3>Fecha</h3>
-            <p>13/10/2021</p>
-          </div>
-          <div>
-            <h3>Paciente</h3>
-            <p>Leo messi</p>
-          </div>
-          <div class="estrellas-calificadas">
-            <h3>Calificación Recibida</h3>
-            <p>★ ★ ★ ★ ★</p>
-          </div>
-        </aside>
-      <aside class="comentarios-cita  aside-2-v-d">
-          <h3>Comentarios</h3>
-          <div>
-            <ul>
-              <li class="li-medico">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-              </li>
-              <li class="li-medico">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-              </li>
-              <li class="li-medico">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-              </li>
-              <li class="li-medico">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-              </li>
-              <li class="li-medico">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-              </li>
-              <li class="li-medico">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-              </li>
-              <li class="li-medico">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-              </li>
-            </ul>
-          </div>
+  </button>
+  <div class="title">
+    <h2 class="title-v-d">Detalle de la cita</h2>
+  </div>
+  <section class="container-v-d">
+    <aside class="informacion-cita aside-v-d">
+        <div>
+          <h3>Fecha</h3>
+          <p>13/10/2021</p>
+        </div>
+        <div>
+          <h3>Paciente</h3>
+          <p>Leo messi</p>
+        </div>
+        <div class="estrellas-calificadas">
+          <h3>Calificación Recibida</h3>
+          <p>★ ★ ★ ★ ★</p>
+        </div>
       </aside>
-    </section>
-  </main>
-  
-  <section class="container-add-comment">
-    <h3>Añadir una comentario</h3>
-    <div class="add-comentario">
-      <input type="text">
-      <button class="btn-add-comentario">Añadir</button>
-    </div>
+    <aside class="comentarios-cita  aside-2-v-d">
+        <h3>Comentarios</h3>
+        <div>
+          <ul>
+            <li class="li-medico">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+            </li>
+            <li class="li-medico">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+            </li>
+            <li class="li-medico">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+            </li>
+            <li class="li-medico">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+            </li>
+            <li class="li-medico">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+            </li>
+            <li class="li-medico">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+            </li>
+            <li class="li-medico">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+            </li>
+          </ul>
+        </div>
+    </aside>
   </section>
-  <footer>© 2021 Copyright: ClinicFile</footer>
-  <script src="../static/js/main.js"></script>
-</body>
-</html>
+</main>
+
+<section class="container-add-comment">
+  <h3>Añadir una comentario</h3>
+  <div class="add-comentario">
+    <input type="text">
+    <button class="btn-add-comentario">Añadir</button>
+  </div>
+</section>
+{% endblock %}

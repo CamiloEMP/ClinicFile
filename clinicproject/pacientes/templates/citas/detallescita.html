@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+  <a href="{{ url_for('pacientes.agendar_cita')}}">
+    <button title="Atras" class="contenedor-boton">
+      <div class="boton-arriba">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+    </button>
+  </a>
+  <div class="title">
+    <h2>Detalle de la cita</h2>
+  </div>
+  <section>
+    <aside class="informacion-cita">
+        <div>
+          <h3>Fecha</h3>
+          <p>13/10/2021</p>
+        </div>
+        <div>
+          <h3>Medico</h3>
+          <p>Juanito Alimaña</p>
+        </div>
+        <div>
+          <form>
+            <h3>Califica la atención recibida</h3>
+            <div class="calificacion">
+              <input id="radio1" type="radio" name="estrellas" value="5">
+              <label for="radio1">★</label>
+              <input id="radio2" type="radio" name="estrellas" value="4">
+              <label for="radio2">★</label>
+              <input id="radio3" type="radio" name="estrellas" value="3">
+              <label for="radio3">★</label>
+              <input id="radio4" type="radio" name="estrellas" value="2">
+              <label for="radio4">★</label>
+              <input id="radio5" type="radio" name="estrellas" value="1">
+              <label for="radio5">★</label>
+            </div>
+          </form>
+        </div>
+      </aside>
+    <div class="comentarios-cita">
+        <h3>Comentarios</h3>
+        <ul>
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+          </li>
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+          </li>
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+          </li>
+          <li>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+          </li>
+        </ul>
+    </div>
+  </section>
+</main>
+
+{% endblock %}

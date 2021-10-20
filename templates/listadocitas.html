@@ -1,158 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Listado de Citas</title>
-    <!--link rel="stylesheet" href="css/bootstrap.css" /-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/clinic-style.css"/>
-    <script src="../static/js/jquery-3.6.0.min.js"></script>
-    <!--script src="js/bootstrap.bundle.js"></script-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="../static/js/clinica-script.js"></script>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar bg-light lineMenu pt-4 px-2 pb-1 mb-5">
-        <div class="container-fluid toolbar">
-          <img style="width: 220px" src="../static/img/logtipo_pagina_small.png"/>
-          <ul class="nav nav-pills mb-3 adjustmenu" id="pills-tab" role="tablist"> 
-            <li class="nav-item" role="presentation">
-              <a href="/login/listado_citas_medico" style="text-decoration: none;"><button class="nav-link active" id="pills-citas-tab" data-bs-toggle="pill" data-bs-target="#pills-citas" type="button" role="tab" aria-controls="pills-citas" aria-selected="false">Gestionar Citas</button></a>
-            </li>
-          </ul>
-          <div class="spacer"></div>
-          <ul class="nav" role="tablist"> 
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="../static/img/user.png"/>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/login/perfil">Mi información</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/login/">Cerrar sesión</a></li>
-              </ul>
-            </li>
-            <li class="nav">
-              <ul class="dropdown-item">
-                <li class="dropdown-item">
-                  <a href="/login/home_medico"><img src="../static/img/home.png"></a>
-                </li>
-              </ul>
-            </li>
-
-          </ul>
-        </div>
-      </nav> 
-    </header>
-  <!--filtrar por # para agregar links-->
-    <main class="pt-5">
-      <div class="container-fluid">        
-        <div class="tab-content" id="pills-citas">
-          <div class="tab-pane fade show active" id="pills-citas" role="tabpanel" aria-labelledby="pills-citas-tab">
+{% extends "base.html" %}
+{% block content %}
+<main>
+  <div class="container-fluid">        
+    <div class="tab-content" id="pills-citas">
+      <div class="tab-pane fade show active" id="pills-citas" role="tabpanel" aria-labelledby="pills-citas-tab">
+        <br>
+        <form action="" method="get" method="post" name="listadoCita">
+          <div class="container">
+            <p class="h4">Listado de Citas</p>
             <br>
-            <form action="" method="get" method="post" name="listadoCita">
-              <div class="container">
-                <p class="h4">Listado de Citas</p>
-                <br>
-                <label> Filtrar cita por: </label>
-                <input type="radio" class="form-check-input" name="todo" id="todo" checked />
-                <label class="form-check-label">Todo</label>
-                <input type="radio" class="form-check-input" name="todo" id="idPaciente" />
-                <label class="form-check-label">Cédula</label>
-                <input type="radio" class="form-check-input" name="todo" id="paciente" />
-                <label class="form-check-label">Paciente</label>
-                <!--input type="radio" class="form-check-input" name="todo" id="medico" />
-                <label class="form-check-label">Médico</label-->
-                <input type="radio" class="form-check-input" name="todo" id="FechaLabel" />
-                <label class="form-check-label">Fecha</label>
-                
-                <div class="container">
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control" id="inputFiltrar">
-                      <input type="date" class="form-check-date" name="todo" id="FechaInput" />
-                    </div>
-                  </div>
+            <label> Filtrar cita por: </label>
+            <input type="radio" class="form-check-input" name="todo" id="todo" checked />
+            <label class="form-check-label">Todo</label>
+            <input type="radio" class="form-check-input" name="todo" id="idPaciente" />
+            <label class="form-check-label">Cédula</label>
+            <input type="radio" class="form-check-input" name="todo" id="paciente" />
+            <label class="form-check-label">Paciente</label>
+            <input type="radio" class="form-check-input" name="todo" id="medico" />
+            <label class="form-check-label">Médico</label>
+            <input type="radio" class="form-check-input" name="todo" id="FechaLabel" />
+            <label class="form-check-label">Fecha</label>
+            
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-4">
+                  <input type="text" class="form-control" id="inputFiltrar">
+                  <input type="date" class="form-check-date" name="todo" id="FechaInput" />
+                  <select class="form-select" aria-label="Default select example" id="selectMedico">
+                    <option selected>Selecciona Médico</option>
+                    <option value="1">DoctorOne</option>
+                    <option value="2">DoctorTwo</option>
+                    <option value="3">DoctorThree</option>
+                  </select>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
-        </div>
-        <br>
-        <div class="container">
-          <div class="row">
-            <table class="table table-striped table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">Cédula</th>
-                  <th scope="col">Paciente</th>
-                  <th scope="col">Estado Cita</th>
-                  <!--th scope="col">Médico</th-->
-                  <th scope="col">Fecha</th>
-                  <th scope="col">link</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Juan Perez</td>
-                  <td>Pendiente</td>
-                  <!--td>DoctorOne</td-->
-                  <td>10/10/2021</td>
-                  <td><a href="/login/detalle_cita_medico">detalles</a></td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>María Goméz</td>
-                  <td>Pendiente</td>
-                  <!--td>DoctorTwo</td-->
-                  <td>10/10/2021</td>
-                  <td><a href="/login/detalle_cita_medico">detalles</a></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Jose Pablo</td>
-                  <td>pendiente</td>
-                  <!--td>DoctorThree</td-->
-                  <td>10/10/2021</td>
-                  <td><a href="/login/detalle_cita_medico">detalles</a></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="row" style="padding-left: 40%;">
-            <nav aria-label="Page navigation example">
-              <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+        </form>
       </div>
-    </main>
+    </div>
+    <br>
+    <div class="container">
+      <div class="row">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Cédula</th>
+              <th scope="col">Paciente</th>
+              <th scope="col">Médico</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Juan Perez</td>
+              <td>DoctorOne</td>
+              <td>10/10/2021</td>
+              <td><a href="#">detalles</a></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>María Goméz</td>
+              <td>DoctorTwo</td>
+              <td>10/10/2021</td>
+              <td><a href="#">detalles</a></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Jose Pablo</td>
+              <td>DoctorThree</td>
+              <td>10/10/2021</td>
+              <td><a href="#">detalles</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row" style="padding-left: 40%;">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</main>
 
-    <footer class="bg-light text-center text-white fixed-bottom">
-      <div class="container p-4 pb-0">
-      </div>
-      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: #212529">
-        © 2021 Copyright: ClinicFile
-      </div>
-    </footer>
-
-  </body>
-</html>
+{% endblock %}

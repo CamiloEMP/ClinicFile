@@ -1,0 +1,55 @@
+.adjustmenu{
+    padding-top: 2%;
+}
+.lineMenu {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05),inset 0 -1px 0 rgba(0,0,0,0.15);
+}
+
+.fixed-bottom {
+    position: relative;
+}
+
+footer{
+    bottom: 0;
+    position:relative;
+    width: 100%;
+}
+.form-button-crearcita{
+    padding: 0% 30% 0% 38%;
+}
+.form-button{
+    padding: 0% 38% 0% 38%;
+}
+#editButton{
+    border-color: rgb(201, 200, 200);
+    box-shadow: 10%;
+}
+.linePerfil{
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    background-color: #fff;
+}
+.menulinks li a{
+text-decoration: none;
+}
+
+.filtrocitamedico {
+    list-style-type: none;
+}
+
+.filtrocitamedico li{
+    float: left;
+    padding-left: 3%;
+}
+
+.filtrocitamedico li input{
+    position: absolute;
+    margin-top: .3rem;
+    margin-left: -1.25rem;
+}
+
+.filtrocitamedico li input[type="radio" i]{
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    border:initial;
+}

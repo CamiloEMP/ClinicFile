@@ -1,101 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../static/css/resultado_busqueda.css">
-  <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-  <title>Busqueda</title>
-</head>
-<body>
-  <header>
-    <img src="../static/img/logtipo_pagina.jpeg" alt="Logotipo de la pagina" class="logo-pagina">
-    <nav>
-      <div class="contenedor-buscador">
-        <input type="text" placeholder="Buscar">
-        <img class="img-search" src="../static/img/search.png" alt="">
+{% extends "base.html" %}
+{% block content %}
+<main>
+  <section class="main-filtrar-busqueda">
+    <button class="btn-1">Todo</button>
+    <button>Citas</button>
+    <button>Pacientes</button>
+    <button>Médicos</button>
+  </section>
+  <div class="informacion-busqueda-totales">
+    <p>Total: 1878</p>
+    <p>|</p>
+    <p>Numero de citas: 1847</p>
+    <p>|</p>
+    <p>Numero de pacientes: 5000</p>
+    <p>|</p>
+    <p>Numero de Medicos: 1000</p>
+  </div>
+  <section class="informacion-busqueda">
+    <section class="informacion-busqueda-datos">
+      <div>
+        <div class="informacion-titulo-paciente informacion-titulo-img">
+          <h2>Pacientes</h2>
+          <img src="../static/img/paciente.svg" alt="">
+        </div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente cupiditate dolore cumque delectus necessitatibus consectetur eius ipsum doloremque. Cupiditate esse placeat quia voluptate et provident at, facilis numquam eaque debitis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quos voluptates omnis nam optio corrupti vel repudiandae incidunt fugiat! Doloremque architecto repudiandae vero? Dignissimos fuga obcaecati dolor ipsam, inventore dolore!</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod vel asperiores suscipit natus, dolorem mollitia magnam dolorum at commodi unde. Suscipit, pariatur. Debitis rerum, necessitatibus veniam aut voluptate inventore itaque!</p>
       </div>
       <div>
-        <a href="/login/home_admin"><img src="../static/img/home.png" alt=""></a>
+        <div class="informacion-titulo-medico informacion-titulo-img">
+          <h2>Medicos</h2>
+          <img src="../static/img/medico.svg" alt="">
+        </div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente cupiditate dolore cumque delectus necessitatibus consectetur eius ipsum doloremque. Cupiditate esse placeat quia voluptate et provident at, facilis numquam eaque debitis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quos voluptates omnis nam optio corrupti vel repudiandae incidunt fugiat! Doloremque architecto repudiandae vero? Dignissimos fuga obcaecati dolor ipsam, inventore dolore!</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod vel asperiores suscipit natus, dolorem mollitia magnam dolorum at commodi unde. Suscipit, pariatur. Debitis rerum, necessitatibus veniam aut voluptate inventore itaque!</p>
       </div>
-    </nav>
-  </header>
-  <main>
-    <section class="main-filtrar-busqueda">
-      <button class="btn-1">Todo</button>
-      <button>Citas</button>
-      <button>Pacientes</button>
-      <button>Médicos</button>
+      <div>
+        <div class="informacion-titulo-citas informacion-titulo-img">
+          <h2>Citas existentes</h2>
+          <img src="../static/img/cita.svg" alt="">
+        </div>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente cupiditate dolore cumque delectus necessitatibus consectetur eius ipsum doloremque. Cupiditate esse placeat quia voluptate et provident at, facilis numquam eaque debitis.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quos voluptates omnis nam optio corrupti vel repudiandae incidunt fugiat! Doloremque architecto repudiandae vero? Dignissimos fuga obcaecati dolor ipsam, inventore dolore!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quos voluptates omnis nam optio corrupti vel repudiandae incidunt fugiat! Doloremque architecto repudiandae vero? Dignissimos fuga obcaecati dolor ipsam, inventore dolore!</p>
+      </div>
     </section>
-    <div class="informacion-busqueda-totales">
-      <p>Total: 1878</p>
-      <p>|</p>
-      <p>Numero de citas: 1847</p>
-      <p>|</p>
-      <p>Numero de pacientes: 5000</p>
-      <p>|</p>
-      <p>Numero de Medicos: 1000</p>
-    </div>
-    <section class="informacion-busqueda">
-      <section class="informacion-busqueda-datos">
-        <div>
-          <div class="informacion-titulo-paciente informacion-titulo-img">
-            <h2>Pacientes</h2>
-            <img src="../static/img/paciente.svg" alt="">
-          </div>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente cupiditate dolore cumque delectus necessitatibus consectetur eius ipsum doloremque. Cupiditate esse placeat quia voluptate et provident at, facilis numquam eaque debitis.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quos voluptates omnis nam optio corrupti vel repudiandae incidunt fugiat! Doloremque architecto repudiandae vero? Dignissimos fuga obcaecati dolor ipsam, inventore dolore!</p>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod vel asperiores suscipit natus, dolorem mollitia magnam dolorum at commodi unde. Suscipit, pariatur. Debitis rerum, necessitatibus veniam aut voluptate inventore itaque!</p>
-        </div>
-        <div>
-          <div class="informacion-titulo-medico informacion-titulo-img">
-            <h2>Medicos</h2>
-            <img src="../static/img/medico.svg" alt="">
-          </div>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente cupiditate dolore cumque delectus necessitatibus consectetur eius ipsum doloremque. Cupiditate esse placeat quia voluptate et provident at, facilis numquam eaque debitis.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quos voluptates omnis nam optio corrupti vel repudiandae incidunt fugiat! Doloremque architecto repudiandae vero? Dignissimos fuga obcaecati dolor ipsam, inventore dolore!</p>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod vel asperiores suscipit natus, dolorem mollitia magnam dolorum at commodi unde. Suscipit, pariatur. Debitis rerum, necessitatibus veniam aut voluptate inventore itaque!</p>
-        </div>
-        <div>
-          <div class="informacion-titulo-citas informacion-titulo-img">
-            <h2>Citas existentes</h2>
-            <img src="../static/img/cita.svg" alt="">
-          </div>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente cupiditate dolore cumque delectus necessitatibus consectetur eius ipsum doloremque. Cupiditate esse placeat quia voluptate et provident at, facilis numquam eaque debitis.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quos voluptates omnis nam optio corrupti vel repudiandae incidunt fugiat! Doloremque architecto repudiandae vero? Dignissimos fuga obcaecati dolor ipsam, inventore dolore!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, quos voluptates omnis nam optio corrupti vel repudiandae incidunt fugiat! Doloremque architecto repudiandae vero? Dignissimos fuga obcaecati dolor ipsam, inventore dolore!</p>
-        </div>
-      </section>
-    </section>
-  </main>
-  <div class="contenedor-boton">
-    <div class="boton-arriba">
-      <i class="fas fa-chevron-up"></i>
-    </div>
+  </section>
+</main>
+<div class="contenedor-boton">
+  <div class="boton-arriba">
+    <i class="fas fa-chevron-up"></i>
   </div>
-  <footer>
-    <section>
-      <p>Vistas generalas</p>
-      <a href="/login/">Login</a>
-      <a href="/registro/">Registro</a>
-      <a href="/login/perfil">Perfil</a>
-      <a href="/login/editar_perfil"></a>
-    </section>
-    <section>
-      <p>Vistas Paciente</p>
-      <a href="/login/home_paciente">Home Paciente</a>
-      <a href="/login/agendar_cita">Agendar cita</a>
-      <a href="/login/listado_citas">Listado de citas</a>
-      <a href="/login/detalle_cita">Detalles de la cita</a>
-    </section>
-    <section>
-      <p>Vistas Medico</p>
-      <a href="/login/home_medico">Home Médico</a>
-      <a href="/login/listado_citas_medico">Listado de citas</a>
-      <a href="/login/detalle_cita_medico">Detalles de la cita</a>
-    </section>
-  </footer>
-  <script src="../static/js/main.js"></script>
-</body>
-</html>
+</div>
+
+{% endblock %}
