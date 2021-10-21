@@ -15,11 +15,13 @@
     <aside class="informacion-cita aside-v-d">
         <div>
           <h3>Fecha</h3>
-          <p>13/10/2021</p>
+          <p>{{cita.fecha}}</p>
+          <p>{{cita.hora}}</p>
         </div>
         <div>
           <h3>Paciente</h3>
-          <p>Leo messi</p>
+          <p>{{cita.paciente.nombre}}</p>
+          <p>{{cita.paciente.tipo_documento}} {{cita.paciente.no_documento}}</p>
         </div>
         <div class="estrellas-calificadas">
           <h3>Calificación Recibida</h3>
@@ -30,38 +32,37 @@
         <h3>Comentarios</h3>
         <div>
           <ul>
+            {% for comentario in cita.comentarios %}
             <li class="li-medico">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+              {{ comentario.comentario}}
+              <p style="font-size:x-small;">Fecha: {{comentario.fecha_hora}}</p>
             </li>
-            <li class="li-medico">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-            </li>
-            <li class="li-medico">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-            </li>
-            <li class="li-medico">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-            </li>
-            <li class="li-medico">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-            </li>
-            <li class="li-medico">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-            </li>
-            <li class="li-medico">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-            </li>
+            {% endfor %}
+
           </ul>
         </div>
     </aside>
   </section>
 </main>
+{% for message in get_flashed_messages() %}
 
-<section class="container-add-comment">
-  <h3>Añadir una comentario</h3>
-  <div class="add-comentario">
-    <input type="text">
-    <button class="btn-add-comentario">Añadir</button>
+  <div class="alert alert-warning alert-dismissible fade show" role='alert'>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    {{message}}
   </div>
+{% endfor%}
+<section class="container-add-comment">
+  <form method="POST">
+    <h3>Añadir una comentario</h3>
+    {{ form.hidden_tag() }}
+    <div class="add-comentario">
+      {{ form.comentario(class_="form-control")}} 
+    </div>
+    <br>
+    {{ form.crear(class_="btn btn-primary") }}
+  </form>
 </section>
 {% endblock %}

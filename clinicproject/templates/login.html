@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+{% for message in get_flashed_messages() %}
+<div class="alert alert-danger">{{ message }}</div>
+{% endfor %}  
+<!-- Formulario -->
+<main>
+<div class="container-todo">
+  <div class="formulario">       
+    <form class="form-login row g-3" method="POST">
+      <h2 id="title-login" name="title-login">Inicia sesión</h2>
+      {{ form.hidden_tag() }}
+      <!-- Usuario -->
+      <div class="col-md-6 ">
+        <label for="inputemaillogin" class="form-label">Nombre de Usuario:</label>
+        {{ form.username(class_="form-control") }}
+      </div>
+      <!-- Contraseña -->
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Contraseña</label>
+        {{ form.password(class_="form-control") }}
+      </div>
+      <!-- Olvido contraseña -->
+      <div class="text-center"> 
+        <button type="button" class="btn btn-link">¿Olvidaste tu contraseña?</button>
+        <br>
+        <a href="{{url_for('pacientes.registro')}}">¿Aun no tienes cuenta?</a>
+      </div>      
+      <!-- Recordarme -->
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            Recordarme
+          </label>
+        </div>
+      </div>
+      <!-- Botón ingresar -->
+      <div class="col-12 text-center">
+        {{ form.enviar(class_="btn btn-primary")}}
+      </div>
+    </form>
+  </div>
+    
+    <!-- Selección de perfil -->
+    
+    <div class="perfiles">
+      <div class="text-center">
+        <img src="../static/img/paciente.png" alt="" width="100px">
+      </div>
+      <div class="col-12 text-center">
+        <button id="btn-paciente-login" type="submit" class="btn btn-primary">Paciente</button>
+      </div>
+      <div class="text-center">
+        <img src="../static/img/medico.png" alt="" width="100px">
+      </div>
+      <div class="col-12 text-center">
+        <button id="btn-medico-login" type="submit" class="btn btn-primary">Médico</button>
+      </div>
+      <div class="text-center">
+        <img src="../static/img/admin.png" alt="" width="100px">
+      </div>
+      <div class="col-12 text-center">
+        <button id="btn-admin-login" type="submit" class="btn btn-primary">Superadmin</button>
+      </div>
+    </div>
+</div>
+</main> 
+
+
+
+
+{% endblock %}

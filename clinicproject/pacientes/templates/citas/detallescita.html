@@ -15,11 +15,12 @@
     <aside class="informacion-cita">
         <div>
           <h3>Fecha</h3>
-          <p>13/10/2021</p>
+          <p>{{ cita.fecha}}</p>
+          <p>{{ cita.hora}}</p>
         </div>
         <div>
           <h3>Medico</h3>
-          <p>Juanito Alimaña</p>
+          <p>{{cita.medico.nombre}}</p>
         </div>
         <div>
           <form>
@@ -42,18 +43,12 @@
     <div class="comentarios-cita">
         <h3>Comentarios</h3>
         <ul>
+          {% for comentario in cita.comentarios %}
           <li>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
+            {{ comentario.comentario}}
+            <p style="font-size:x-small;">Fecha: {{comentario.fecha_hora}}</p>
           </li>
-          <li>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-          </li>
-          <li>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-          </li>
-          <li>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus possimus iusto, fuga nemo cumque tempore aliquid adipisci perferendis
-          </li>
+          {% endfor %}
         </ul>
     </div>
   </section>

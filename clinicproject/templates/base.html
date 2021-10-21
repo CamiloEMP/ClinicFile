@@ -146,36 +146,70 @@
                 </button>
               </a>  
             </li>
+            <li class="nav-item" role="presentation">
+              <a 
+                href="{{url_for('administracion.registro')}}"
+                target="self">
+                <button
+                  {% if activeMenu == 'registromedicos' %}
+                    class="nav-link active"
+                  {% else %}
+                    class="nav-link"
+                  {% endif %}
+                  id="pills-registro-tab"
+                  data-bs-toggle="pill"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-registro"
+                  aria-selected="false">
+                  Registro de Médicos
+                </button>
+              </a>
+            </li>
           </ul>
           <div class="spacer"></div>
+            {% if current_user.is_authenticated %}
+              <ul class="nav" role="tablist">
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="{{ url_for('static', filename='img/user.png')}}" /> 
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item" href="{{url_for('pacientes.mis_citas')}}">Mis Citas</a>
+                    </li>
+                    <li><a class="dropdown-item" href="/perfil">Mi información</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="{{url_for('administracion.logout')}}">Cerrar sesión</a></li>
+                  </ul>
+                </li>
+                <li class="nav">
+                  <ul class="dropdown-item">
+                    <li class="dropdown-item">
+                      <a href="{{url_for('index')}}"><img src="{{ url_for('static', filename='img/home.png')}}" /></a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            {% else %}
             <ul class="nav" role="tablist">
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <img src="{{ url_for('static', filename='img/user.png')}}" /> 
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a class="dropdown-item" href="/listado_citas">Mis Citas</a>
-                  </li>
-                  <li><a class="dropdown-item" href="/perfil">Mi información</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
-                </ul>
-              </li>
+
               <li class="nav">
                 <ul class="dropdown-item">
                   <li class="dropdown-item">
-                    <a href="{{url_for('index')}}"><img src="{{ url_for('static', filename='img/home.png')}}" /></a>
+                    <a href="{{url_for('login')}}">Login</a>
                   </li>
                 </ul>
               </li>
             </ul>
+            {% endif %}
+
         </div>
       </nav>
     </header>

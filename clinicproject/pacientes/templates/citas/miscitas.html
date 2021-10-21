@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+
+<br>
+{% for message in get_flashed_messages() %}
+
+{% if message == 'Cita agendada correctamente!!' %}
+<div class="alert alert-success alert-dismissible fade show" role='alert'>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+  {{message}}
+</div>
+{% else %}
+  <div class="alert alert-danger alert-dismissible fade show" role='alert'>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+    {{message}}
+  </div>
+{% endif %}
+{% endfor%}
+
+<div class="container">
+  <div class="row">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <!--th scope="col">Cédula</th>
+          <th scope="col">Paciente</th-->
+          <th scope="col">Fecha</th>
+          <th scope="col">Estado Cita</th>
+          <th scope="col">Hora </th>
+          <th scope="col">Disponible</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cita in citas %}
+          <tr>
+            <!--th scope="row">1</th>
+            <td>Juan Perez</td-->
+            <td>{{cita.fecha}}</td>
+            <td>{{cita.estado}}</td>
+            <td>{{cita.hora}}</td>
+            {% if cita.estado == 'disponible' %}
+              <td><a href="{{ url_for('pacientes.solicitar', idcita = cita.id) }}" class="link-primary">Solicitar</a></td>
+            {% else %}
+              <td><a href="{{ url_for('pacientes.verdetallecita', idcita = cita.id)}}" class="link-primary">Ver Detalle</a></td>
+            {% endif %}
+            
+          </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+  <div class="row" style="padding-left: 40%;">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+{% endblock %}

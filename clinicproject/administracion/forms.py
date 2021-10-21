@@ -5,15 +5,7 @@ from wtforms import validators
 
 from clinicproject.models import User
 
-class AgendarCitaForm(FlaskForm):
-    selectNombreMedico = SelectField('Seleccionar el Medico: ',
-                        choices=[(1, 'new medico 1'),
-                                 (2, 'new medico 2')])
-    fechaCita = DateField('Consultar disponibilidad', format='%Y-%m-%d')
-    terminos = BooleanField("Acepto términos y condiciones")
-    confirmar = SubmitField('Confirmar')
-
-class RegistroPacienteForm(FlaskForm):
+class RegistroMedicoForm(FlaskForm):
     nombre = StringField('Nombres y Apellidos')
     telefono = IntegerField('Télefono de contacto')
     tipo_documento = SelectField('Tipo de documento',
@@ -29,7 +21,11 @@ class RegistroPacienteForm(FlaskForm):
     password = PasswordField('Contraseña')
     terminos = BooleanField("Declaro haber leído y aceptado la normativa sobre protección de datos.")
     enviar = SubmitField('Enviar')
-
     def check_username(self,field):
         if User.query.filter_by(username=field.data).first():
             raise validators.ValidationError('El usuario ya existe!')
+
+class LoginForm(FlaskForm):
+    username = StringField(validators=[validators.Length(min=4, max=20)])
+    password = PasswordField(validators=[validators.DataRequired()])
+    enviar = SubmitField("Ingresar")
