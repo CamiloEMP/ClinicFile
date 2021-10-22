@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, redirect, url_for, flash
 from flask_login.utils import login_required, login_user, logout_user
 from werkzeug.wrappers import request
 from clinicproject.administracion.forms import LoginForm, RegistroMedicoForm
-from clinicproject.models import Cita, Medico, Paciente, User
+from clinicproject.models import Cita, Medico, Paciente, Role, User
 from clinicproject import db
 
 administrador_blueprints = Blueprint('administracion', __name__, template_folder='templates/')
@@ -14,7 +14,8 @@ def registro():
     form = RegistroMedicoForm()
     if form.validate_on_submit():
         form.check_username(form.username)
-        usuario = User(form.username.data, form.password.data)
+        role = Role.query.filter_by(nombre='ROLE_PACIENTE').first()
+        usuario = User(form.username.data, form.password.data, role.id)
         db.session.add(usuario)
         db.session.commit()
         medico = Medico(form.nombre.data,
