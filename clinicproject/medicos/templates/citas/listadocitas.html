@@ -46,13 +46,19 @@
             </tr>
           </thead>
           <tbody>
-            {% for front_cita in citas %}
+            {% for cita in citas %}
               <tr>
-                <th scope="row">{{front_cita.documento}}</th>
-                <td>{{front_cita.nombre}}</td>
-                <td>{{front_cita.estado}}</td>
-                <td>{{front_cita.fecha_hora}}</td>
-                <td><a href="{{ url_for('medicos.ver_detalle_citas', idcita = front_cita.id)}}">detalles</a></td>
+                {% if cita.paciente != None %}
+                  <th scope="row"> {{cita.paciente.tipo_documento}} {{cita.paciente.no_documento}}</th>
+                  <td>{{cita.paciente.nombre}}</td>
+                {% else %}
+                  <th scope="row"> </th>
+                  <td> </td>
+                {% endif %}
+
+                <td>{{cita.estado}}</td>
+                <td>{{cita.fecha}} {{cita.hora}}</td>
+                <td><a href="{{ url_for('medicos.ver_detalle_citas', idcita = cita.id)}}">detalles</a></td>
               </tr>
             {% endfor %}
            

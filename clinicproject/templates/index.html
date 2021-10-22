@@ -3,24 +3,35 @@
 <main>
   <h2>Ultimas noticias</h2>
   <div class="index-article">
+    {% for message in get_flashed_messages() %}
+
+    <div class="alert alert-success alert-dismissible fade show" role='alert'>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+      {{message}}
+    </div>
+  
+    {% endfor%}
     <section>
       <article>
-        <img src="../static/img/imagen-doctores-home.png" alt="">
-        <h3>Nombre noticia</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
-        <a href="">Ver mas</a>
+        <img src="../static/img/imagen-doctores-home.png"alt="">
+        <h3>Coronavirus (Covit-19)</h3>
+        <p>Reportes y Tableros de Controles diarios en Colombia</p>
+        <a href="https://covid19.minsalud.gov.co/">Ver mas</a>
       </article>
       <article>
         <img src="../static/img/imagen-doctores-home.png" alt="">
-        <h3>Nombre noticia</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
-        <a href="">Ver mas</a>
+        <h3>SISPRO</h3>
+        <p>Sistema integrado de información de la protección social</p>
+        <a href="https://www.sispro.gov.co/Pages/Home.aspx">Ver mas</a>
       </article>
       <article>
         <img src="../static/img/imagen-doctores-home.png" alt="">
-        <h3>Nombre noticia</h3>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi unde adipisci excepturi odit veniam quibusdam numquam velit repellat</p>
-        <a href="">Ver mas</a>
+        <h3>OMS</h3>
+        <p>Ultimas noticias en salud mundial</p>
+        <a href="https://www.who.int/es">Ver mas</a>
       </article>
     </section>
   </div>

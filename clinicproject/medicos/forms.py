@@ -4,6 +4,7 @@ from wtforms import BooleanField, SubmitField, SelectField, StringField, Passwor
 from wtforms.fields.core import RadioField
 from wtforms.fields.html5 import DateTimeLocalField, DateField, EmailField, IntegerField,TimeField
 from wtforms import validators
+from wtforms.fields.simple import HiddenField
 
 
 class FiltrarCitasForm(FlaskForm):
@@ -25,3 +26,8 @@ class CrearCitasForm(FlaskForm):
         dia = DateField('Seleccionar Día', format='%Y-%m-%d')
         hora = TimeField('Hora Inicio', format='%H:%M')
         crear = SubmitField('Crear Cita')
+
+class CrearComentarioForm(FlaskForm):
+        comentario = StringField([validators.Length(min=10, max=250)])
+        idcita = HiddenField([validators.DataRequired(), validators.Email()])
+        crear = SubmitField('Añadir')

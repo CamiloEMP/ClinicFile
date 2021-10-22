@@ -7,23 +7,24 @@
 <main>
 <div class="container-todo">
   <div class="formulario">       
-    <form class="form-login row g-3" method="POST" action="{{url_for('login_envio')}}">
-        <h2 id="title-login" name="title-login">Inicia sesión</h2>
+    <form class="form-login row g-3" method="POST">
+      <h2 id="title-login" name="title-login">Inicia sesión</h2>
+      {{ form.hidden_tag() }}
       <!-- Usuario -->
       <div class="col-md-6 ">
-        <label for="inputemaillogin" class="form-label">Correo</label>
-        <input type="email" class="form-control" id="inputemaillogin" name="inputemaillogin" required>
+        <label for="inputemaillogin" class="form-label">Nombre de Usuario:</label>
+        {{ form.username(class_="form-control") }}
       </div>
       <!-- Contraseña -->
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" id="inputpasswordlogin" name="inputpasswordlogin" required>
+        {{ form.password(class_="form-control") }}
       </div>
       <!-- Olvido contraseña -->
       <div class="text-center"> 
         <button type="button" class="btn btn-link">¿Olvidaste tu contraseña?</button>
         <br>
-        <a href="/registro/">¿Aun no tienes cuenta?</a>
+        <a href="{{url_for('pacientes.registro')}}">¿Aun no tienes cuenta?</a>
       </div>      
       <!-- Recordarme -->
       <div class="col-12">
@@ -36,7 +37,7 @@
       </div>
       <!-- Botón ingresar -->
       <div class="col-12 text-center">
-        <button type="submit" class="btn btn-primary">Ingresar</button>
+        {{ form.enviar(class_="btn btn-primary")}}
       </div>
     </form>
   </div>
