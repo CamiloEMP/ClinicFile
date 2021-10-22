@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, flash
 from flask_login.utils import login_required
 from flask_login import current_user
-from clinicproject.pacientes.forms import AgendarCitaForm, RegistroPacienteForm
+from clinicproject.pacientes.forms import AgendarCitaForm, CalificacionForm, RegistroPacienteForm
 from clinicproject.models import Cita, Medico, Paciente, User
 from clinicproject import db
 
@@ -58,8 +58,15 @@ def registro():
 @pacientes_blueprints.route('/detallecita/<idcita>', methods=['GET', 'POST'])
 def verdetallecita(idcita):
     activeMenu = "agendar"
+    form = CalificacionForm()
     cita = Cita.query.get(idcita)
-    return render_template('detallescita.html', activeMenu = activeMenu, cita = cita)
+    if form.validate_on_submit():
+        cita.calificacion = form.calificacion.data
+        print(form.calificacion.data)
+        db.session.add(cita)
+        db.session.commit()
+        flash("Calificación asignada correctamente")
+    return render_template('detallescita.html', activeMenu = activeMenu, cita = cita, form = form)
 
 
 @pacientes_blueprints.route('/solicitar/<idcita>', methods=['GET', 'POST'])
@@ -81,5 +88,7 @@ def solicitar(idcita):
 @pacientes_blueprints.route('/miscitas', methods=['GET', 'POST'])
 @login_required
 def mis_citas():
+    print(current_user)
+    print(current_user.role)
     citas = Cita.query.filter_by(paciente_id = current_user.get_id())
     return render_template('miscitas.html', citas = citas)

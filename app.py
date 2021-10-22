@@ -18,9 +18,6 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        print('HEY HEY USUARIO USUARIO:::::::')
-        print(type(user))
-        print(user.username)
         if user.check_password(form.password.data) and user is not None:
             login_user(user)
             flash('Ingreso exitoso!')

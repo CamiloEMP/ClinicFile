@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import BooleanField, SubmitField, SelectField, StringField, PasswordField
+from wtforms.fields.core import RadioField
 from wtforms.fields.html5 import DateTimeLocalField, DateField, EmailField, IntegerField
 from wtforms import validators
 
@@ -33,3 +34,13 @@ class RegistroPacienteForm(FlaskForm):
     def check_username(self,field):
         if User.query.filter_by(username=field.data).first():
             raise validators.ValidationError('El usuario ya existe!')
+
+class CalificacionForm(FlaskForm):
+    calificacion = RadioField(choices=[
+        (1,'★'),
+        (2,'★★'),
+        (3,'★★★'),
+        (4,'★★★★'),
+        (5,'★★★★★')
+    ])
+    enviar = SubmitField('Enviar')

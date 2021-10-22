@@ -34,6 +34,11 @@ def registro():
             flash(form.errors)
     return render_template('registro_medico.html', activeMenu = activeMenu, form = form)
 
+@administrador_blueprints.route('/perfil', methods=['GET', 'POST'])
+@login_required
+def perfil():
+    return render_template('perfil.html')
+
 @administrador_blueprints.route('/logout', methods=['GET', 'POST'])
 @login_required
 def logout():

@@ -52,8 +52,11 @@ def ver_detalle_citas(idcita):
     print(form)
     if form.validate_on_submit():
         citaComentario = CitaComentario(cita.id, form.comentario.data)
+        cita.estado = 'Cumplida'
+        db.session.add(cita)
         db.session.add(citaComentario)
         db.session.commit()
+
         return redirect(url_for('medicos.ver_detalle_citas', idcita = cita.id, form = form))
     if len(form.errors) != 0:
             flash(form.errors)

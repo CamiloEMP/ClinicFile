@@ -14,13 +14,25 @@ class User(db.Model,UserMixin):
     id = db.Column(db.Integer,primary_key = True)
     username = db.Column(db.String(64),unique=True,index=True)
     password = db.Column(db.String(128))
+    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
+    role = db.relationship('Role', uselist=False)
 
-    def __init__(self,username,password):
+    def __init__(self,username,password, role_id):
         self.username = username
         self.password = generate_password_hash(password)
+        self.role_id = role_id
     
     def check_password(self,password):
         return check_password_hash(self.password, password)
+
+class Role(db.Model):
+
+    __tablename__ = 'roles'
+    id = db.Column(db.Integer,primary_key=True)
+    nombre = db.Column(db.String(20))
+
+    def __init__(self, nombre):
+        self.nombre = nombre
 
 class Medico(db.Model):
 
@@ -82,7 +94,8 @@ class Cita(db.Model):
     paciente_id = db.Column(db.Integer,db.ForeignKey('pacientes.id'))
     paciente = db.relationship('Paciente' ,uselist=False)
     comentarios = db.relationship('CitaComentario', backref="cita_comentario", lazy="dynamic")
-
+    calificacion = db.Column(db.Integer)
+    
     def __init__(self, medico_id, fecha, hora, duracion):
         self.medico_id = medico_id
         self.fecha = fecha

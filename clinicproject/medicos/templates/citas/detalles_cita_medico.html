@@ -25,7 +25,11 @@
         </div>
         <div class="estrellas-calificadas">
           <h3>Calificación Recibida</h3>
-          <p>★ ★ ★ ★ ★</p>
+          <p>
+          {% for i in range(0,cita.calificacion) %}
+          ★ 
+          {% endfor %}
+          </p>
         </div>
       </aside>
     <aside class="comentarios-cita  aside-2-v-d">

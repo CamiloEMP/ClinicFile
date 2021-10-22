@@ -80,92 +80,102 @@
                 </button>
               </a>
             </li>
-            <li class="nav-item" role="presentation">
-              <a 
-                href="{{url_for('medicos.gestionar_citas')}}"
-                target="self">
-                <button
-                  {% if activeMenu == 'infoCitasMedico' %}
-                    class="nav-link active"
-                  {% else %}
-                    class="nav-link"
-                  {% endif %}
-                  class="nav-link"
-                  id="pills-buscar-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-buscar"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-buscar"
-                  aria-selected="false">
-                  Gestionar Citas
-                </button>
-              </a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a 
-                href="{{url_for('medicos.crear_citas')}}"
-                target="self">
-                <button
-                  {% if activeMenu == 'crear_citas' %}
-                    class="nav-link active"
-                  {% else %}
-                    class="nav-link"
-                  {% endif %}
-                  class="nav-link"
-                  id="pills-crear-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-crear"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-crear"
-                  aria-selected="false">
-                  Crear Citas
-                </button>
-              </a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a 
-                href="{{url_for('pacientes.agendar_cita')}}"
-                target="self">
-                <button
-                  {% if activeMenu == 'agendar' %}
-                    class="nav-link active"
-                  {% else %}
-                    class="nav-link"
-                  {% endif %}
-                  class="nav-link"
-                  id="pills-citas-tab"
-                  data-bs-toggle="pill"
-                  data-bs-target="#pills-citas"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-citas"
-                  aria-selected="false">
-                  Agendar Cita
-                </button>
-              </a>  
-            </li>
-            <li class="nav-item" role="presentation">
-              <a 
-                href="{{url_for('administracion.registro')}}"
-                target="self">
-                <button
-                  {% if activeMenu == 'registromedicos' %}
-                    class="nav-link active"
-                  {% else %}
-                    class="nav-link"
-                  {% endif %}
-                  id="pills-registro-tab"
-                  data-bs-toggle="pill"
-                  type="button"
-                  role="tab"
-                  aria-controls="pills-registro"
-                  aria-selected="false">
-                  Registro de Médicos
-                </button>
-              </a>
-            </li>
+            {% if current_user.is_authenticated %}
+              {% if current_user.role.nombre != 'ROLE_PACIENTE' %}
+                <li class="nav-item" role="presentation">
+                  <a 
+                    href="{{url_for('medicos.gestionar_citas')}}"
+                    target="self">
+                    <button
+                      {% if activeMenu == 'infoCitasMedico' %}
+                        class="nav-link active"
+                      {% else %}
+                        class="nav-link"
+                      {% endif %}
+                      class="nav-link"
+                      id="pills-buscar-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-buscar"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-buscar"
+                      aria-selected="false">
+                      Gestionar Citas
+                    </button>
+                  </a>
+                </li>
+              {% endif %}
+              {% if current_user.role.nombre != 'ROLE_PACIENTE' %}
+                <li class="nav-item" role="presentation">
+                  <a 
+                    href="{{url_for('medicos.crear_citas')}}"
+                    target="self">
+                    <button
+                      {% if activeMenu == 'crear_citas' %}
+                        class="nav-link active"
+                      {% else %}
+                        class="nav-link"
+                      {% endif %}
+                      class="nav-link"
+                      id="pills-crear-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-crear"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-crear"
+                      aria-selected="false">
+                      Crear Citas
+                    </button>
+                  </a>
+                </li>
+              {% endif %}
+              {% if current_user.role.nombre != 'ROLE_DOCT' %}
+                <li class="nav-item" role="presentation">
+                  <a 
+                    href="{{url_for('pacientes.agendar_cita')}}"
+                    target="self">
+                    <button
+                      {% if activeMenu == 'agendar' %}
+                        class="nav-link active"
+                      {% else %}
+                        class="nav-link"
+                      {% endif %}
+                      class="nav-link"
+                      id="pills-citas-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-citas"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-citas"
+                      aria-selected="false">
+                      Agendar Cita
+                    </button>
+                  </a>  
+                </li>
+              {% endif %}
+              {% if current_user.role.nombre == 'ROLE_SUPER' %}
+                <li class="nav-item" role="presentation">
+                  <a 
+                    href="{{url_for('administracion.registro')}}"
+                    target="self">
+                    <button
+                      {% if activeMenu == 'registromedicos' %}
+                        class="nav-link active"
+                      {% else %}
+                        class="nav-link"
+                      {% endif %}
+                      id="pills-registro-tab"
+                      data-bs-toggle="pill"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-registro"
+                      aria-selected="false">
+                      Registro de Médicos
+                    </button>
+                  </a>
+                </li>
+              {% endif %}
+            {% endif %}
           </ul>
           <div class="spacer"></div>
             {% if current_user.is_authenticated %}
@@ -182,10 +192,14 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
-                      <a class="dropdown-item" href="{{url_for('pacientes.mis_citas')}}">Mis Citas</a>
+                      {% if current_user.role.nombre == 'ROLE_DOCT' %}
+                        <a class="dropdown-item" href="{{url_for('medicos.gestionar_citas')}}">Mis Citas</a>
+                      {% else %}
+                        <a class="dropdown-item" href="{{url_for('pacientes.mis_citas')}}">Mis Citas</a>
+                      {% endif %}
                     </li>
-                    <li><a class="dropdown-item" href="/perfil">Mi información</a></li>
-                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="{{url_for('administracion.perfil')}}">Mi información</a></li>
+                    <li><hr class="dropdown-divider"/></li>
                     <li><a class="dropdown-item" href="{{url_for('administracion.logout')}}">Cerrar sesión</a></li>
                   </ul>
                 </li>
